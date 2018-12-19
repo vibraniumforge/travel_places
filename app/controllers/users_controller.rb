@@ -9,6 +9,7 @@ binding.pry
   end
 
   get '/user/:slug' do
+      binding.pry
     @user=User.find_by_slug(params[:slug])
     binding.pry
     erb :'/user/tweets'
