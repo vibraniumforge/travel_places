@@ -1,12 +1,13 @@
 <h1>Welcome to Fwitter</h1>
 <h3>Flatiron Twitter</h3>
-<p>app/tweets/create_tweet.erb</p>
+<p>app/views/tweets/create_tweet.erb</p>
 <a href="/">Home</a>
 <br>
 <hr>
-<h1>Create a Tweet</h1>
-<form method="POST" action="/tweets">
-  <label for "content">Tweet Content: </label>
+<h1>Edit a Tweet</h1>
+<form method="POST" action="/tweets/<%= @tweet.id %>">
+  <input id="hidden" name="_method" type="hidden" value="patch"
+  <label for "content">Tweet Content: <%= @tweet.content %> </label>
   <textarea type="text" name="tweet[content]" id="content"></textarea>
   <br>
   <input type="submit" id="submit" name="submit" value="submit">
