@@ -1,0 +1,11 @@
+<h1>Welcome to Fwitter</h1>
+<h3>Flatiron Twitter</h3>
+<p>app/users/user_tweets.erb</p>
+<a href="/">Home</a>
+<br>
+<hr>
+<h1>Tweets from <%= @user.username %>
+<% @user.tweets.each do | tweet | %>
+  <%= tweet.content %>
+  <br>
+<% end %>
