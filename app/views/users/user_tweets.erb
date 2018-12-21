@@ -1,15 +1,17 @@
-<h1>Welcome to Fwitter</h1>
-<h3>Flatiron Twitter</h3>
 <p>app/views/users/user_tweets.erb</p>
 <a href="/">Home</a>
 <br>
 <a href="/logout">Log Out</a>
 <br>
-<hr>
-<h1>Tweets from <%= @user.username %>
-<% @user.tweets.each do | tweet | %>
-  <%= tweet.content %>
-  <br>
-<% end %>
-<a href="/tweets/create_tweet">Create a Tweet</a>
+<a href="/tweets/new">Create a Tweet</a>
 <br>
+<hr>
+<h1>Tweets from <%= @user.username %></h1>
+<ol style="list-style:none">
+<% @user.tweets.each do | tweet | %>
+  <li>
+    <%= tweet.content %>
+  </li>
+<% end %>
+</ol>
+<hr>

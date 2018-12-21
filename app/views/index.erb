@@ -1,10 +1,11 @@
-<h1>Welcome to Fwitter</h1>
-<h3>Flatiron Twitter</h3>
 <p>app/views/index.erb</p>
-<a href="/logout">Log Out</a>
-<br>
-<a href="/users/:slug">My Info</a>
 <hr>
-<a href="/signup">Sign Up</a>
-<br>
-<a href="/login">Log In</a>
+<% if Helpers.is_logged_in?(session) %>
+  <a href="/users/<%= Helpers.current_user(session).username %>">My Page</a>
+  <br>
+  <a href="/logout">Log Out</a>
+<% else %>
+  <a href="/signup">Sign Up</a>
+  <br>
+  <a href="/login">Log In</a>
+<% end %>
