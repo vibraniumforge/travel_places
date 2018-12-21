@@ -15,8 +15,10 @@ class UsersController < ApplicationController
     erb :'/users/create_user'
   end
 
-  get '/users/:username' do
-    @user=User.find_by(params[:username])
+    get '/users/:slug' do
+      @user=User.find_by_slug(params[:slug])
+    # get '/users/:username' do
+    # @user=User.find_by(params[:username])
     if !@user.nil?
       erb :'/users/user_tweets'
     else
