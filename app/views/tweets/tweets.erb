@@ -1,8 +1,4 @@
 <p>app/views/tweets/tweets.erb</p>
-<a href="/">Home</a>
-<br>
-<a href="/logout">Log Out</a>
-<br>
 <a href="/tweets/new">Create a New Tweet</a>
 <br>
 <hr>
@@ -10,11 +6,16 @@
 <h3>All your tweets:</h3>
 <br>
 <hr>
+<ol style="list-style:none">
 <% @tweets.each do | tweet | %>
-  <%= tweet.content %>
-  <br>
-  <a href="/tweets/<%= tweet.id %>/edit">Edit Tweet</a>
+  <li>
+    <%= tweet.content %>
+    <br>
+    <a href="/tweets/<%= tweet.id %>/edit">Edit Tweet</a>
+    <br>
+    <hr>
+  </li>
+  <% end %>
+</ol>
   <br>
   <hr>
-<% end %>
-<hr>

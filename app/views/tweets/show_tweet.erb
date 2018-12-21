@@ -1,11 +1,5 @@
 <p>app/views/tweets/show_tweet.erb</p>
-<a href="/">Home</a>
-<br>
-<a href="/users/<%= Helpers.current_user(session).username %>">My Page</a>
-<br>
 <a href="/tweets/new">Create a New Tweet</a>
-<br>
-<a href="/logout">Log Out</a>
 <br>
 <hr>
 <%= @tweet.content %>
