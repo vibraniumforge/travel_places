@@ -1,4 +1,3 @@
-
 class UsersController < ApplicationController
 
   get '/login' do
@@ -21,7 +20,7 @@ class UsersController < ApplicationController
     if !@user.nil?
       erb :'/users/user_tweets'
     else
-      erb :'/login'
+      erb :'/users/login'
     end
   end
 

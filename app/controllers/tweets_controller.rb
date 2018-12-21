@@ -1,4 +1,3 @@
-
 class TweetsController < ApplicationController
 
   get '/tweets' do
@@ -22,7 +21,7 @@ class TweetsController < ApplicationController
   get '/tweets/:id' do
     if Helpers.is_logged_in?(session)
       @tweet=Tweet.find(params[:id])
-      erb :'/tweets/show_tweets'
+      erb :'/tweets/show_tweet'
     else
       redirect to '/login'
     end
@@ -54,7 +53,7 @@ class TweetsController < ApplicationController
   get '/tweets/:id' do
     if Helpers.is_logged_in?(session)
       @tweet=Tweet.find(params[:id])
-      erb :'/tweets/show_tweets'
+      erb :'/tweets/show_tweet'
     else
       redirect to '/login'
     end

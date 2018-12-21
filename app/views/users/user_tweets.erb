@@ -3,9 +3,13 @@
 <p>app/views/users/user_tweets.erb</p>
 <a href="/">Home</a>
 <br>
+<a href="/logout">Log Out</a>
+<br>
 <hr>
 <h1>Tweets from <%= @user.username %>
 <% @user.tweets.each do | tweet | %>
   <%= tweet.content %>
   <br>
 <% end %>
+<a href="/tweets/create_tweet">Create a Tweet</a>
+<br>
