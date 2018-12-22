@@ -2,7 +2,7 @@ module Slugifiable
 
   module InstanceMethods
     def slug
-      username.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+      place.country.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '') + "-" + place.city.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
     end
   end
 

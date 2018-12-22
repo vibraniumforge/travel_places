@@ -1,4 +1,5 @@
 class CreateUser < ActiveRecord::Migration
+
   def change
     create_table :users do |user|
       user.string :username
@@ -7,4 +8,5 @@ class CreateUser < ActiveRecord::Migration
       user.string :password_digest
     end
   end
+  
 end
