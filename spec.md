@@ -1,3 +1,21 @@
+Skip to content
+
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ @vibraniumforge Sign out
+14
+2 449 learn-co-students/sinatra-cms-app-assessment-v-000
+ Code  Issues 0  Pull requests 15  Projects 0  Insights
+sinatra-cms-app-assessment-v-000/spec.md
+2c0d71e  on Sep 21
+@howardbdev howardbdev make displaying validation errors optional
+@howardbdev @PeterBell @Lukeghenco @weezwo
+
+21 lines (18 sloc)  1.17 KB
 Specifications for the Sinatra Assessment
 Specs:
 
