@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   get '/login' do
-    binding.pry
     if Helpers.is_logged_in?(session)
       redirect to '/places'
     else

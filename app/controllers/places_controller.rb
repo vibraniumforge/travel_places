@@ -64,14 +64,17 @@ class PlacesController < ApplicationController
   patch "/places/:id" do
     @place=Place.find(params[:id])
     binding.pry
-    if params[:place][:continent].empty?
+    if params[:place][:continent].empty? ||
       params[:place][:country].empty? ||
-      params[:place][:state].empty? ||
-      params[:place][:city].empty?
+      params[:place][:state].empty?
+      # params[:place][:city].empty?
       redirect to "/places/#{@place.id}/edit"
     end
+    binding.pry
     @place.update(params[:place])
+    binding.pry
     @place.save
+    binding.pry
     redirect to "/places/#{@place.id}"
   end
 
@@ -91,4 +94,3 @@ class PlacesController < ApplicationController
   end
 
 end
-  
