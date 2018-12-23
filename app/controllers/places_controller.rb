@@ -64,7 +64,7 @@ class PlacesController < ApplicationController
     if params[:place][:continent].empty? ||
       params[:place][:country].empty? ||
       params[:place][:state].empty?
-      # params[:place][:city].empty?
+      params[:place][:city].empty?
       redirect to "/places/#{@place.id}/edit"
     end
     @place.update(params[:place])
