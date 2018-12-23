@@ -1,8 +1,10 @@
 class PlacesController < ApplicationController
 
+  set :views, 'app/views/places'
+
   get '/places' do
     if Helpers.is_logged_in?(session)
-      @places=Place.all
+      @places=Helpers.current_user(session).places
       binding.pry
       erb :'index'
     else
@@ -15,14 +17,14 @@ class PlacesController < ApplicationController
     if user.nil?
       redirect to '/login'
     else
-      erb :'places/create_place'
+      erb :'new'
     end
   end
 
   get '/places/:id' do
     if Helpers.is_logged_in?(session)
       @place=Place.find(params[:id])
-      erb :'/places/show_place'
+      erb :'show'
     else
       redirect to '/login'
     end
@@ -32,7 +34,7 @@ class PlacesController < ApplicationController
     redirect to '/login' unless Helpers.is_logged_in?(session)
     @place = Place.find(params[:id])
     if @place.user == Helpers.current_user(session)
-      erb :'/places/edit_place'
+      erb :'edit'
     else
       redirect to '/login'
     end
@@ -50,11 +52,13 @@ class PlacesController < ApplicationController
     #   redirect to '/places/new'
     else
       binding.pry
-      # user.places.build({content: params[:place][:continent],
-      # [:place][:country],
-      # [:place][:state],
-      # [:place][:city],
-      # [:place][:notes]})
+      user.places << Place.new({
+      continent: params[:place][:continent],
+      country: params[:place][:country],
+      state: params[:place][:state],
+      city: params[:place][:city],
+      notes: params[:place][:notes]
+      })
       user.save
     end
     redirect to '/places'

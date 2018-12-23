@@ -1,5 +1,5 @@
 <p>app/views/places/show_place.erb</p>
-<a href="/places/new">Create a New Place</a>
+<a href="/places/new">Show a New Place</a>
 <br>
 <hr>
 <h1>Show a Place</h1>
@@ -11,7 +11,7 @@
 <br>
 <%= place.city %>
 <br>
-<%= place.notes %> 
+<%= place.notes %>
 <br>
 <hr>
 <form method="GET" action="/places/<%= @place.id %>/edit">

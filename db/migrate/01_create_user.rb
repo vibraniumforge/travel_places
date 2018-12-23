@@ -8,5 +8,5 @@ class CreateUser < ActiveRecord::Migration
       user.string :password_digest
     end
   end
-  
+
 end
