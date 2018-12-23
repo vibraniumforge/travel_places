@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  set :views, 'app/views/users'
+
   get '/login' do
     if Helpers.is_logged_in?(session)
       redirect to '/places'
@@ -36,7 +38,6 @@ class UsersController < ApplicationController
 
   post '/login' do
     @user=User.find_by(:username=>params[:username])
-    binding.pry
     if @user && @user.authenticate(params[:password])
       session[:user_id]=@user.id
       redirect to '/places'
