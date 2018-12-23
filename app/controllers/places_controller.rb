@@ -60,6 +60,7 @@ class PlacesController < ApplicationController
 
   patch "/places/:id" do
     @place=Place.find(params[:id])
+    binding.pry
     if params[:place][:continent].empty?
       # params[:place][:country].empty? ||
       # params[:place][:state].empty? ||

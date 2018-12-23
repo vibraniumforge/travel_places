@@ -16,13 +16,13 @@ class UsersController < ApplicationController
     erb :'/users/create_user'
   end
 
-    get '/users/:slug' do
-      @user=User.find_by_slug(params[:slug])
-      if !@user.nil?
-        erb :'/places/places'
-      else
-        erb :'/users/login'
-      end
+  get '/users/:slug' do
+    @user=User.find_by_slug(params[:slug])
+    if !@user.nil?
+      erb :'/places/places'
+    else
+      erb :'/users/login'
+    end
   end
 
   post '/signup' do
@@ -37,6 +37,7 @@ class UsersController < ApplicationController
 
   post '/login' do
     @user=User.find_by(:username=>params[:username])
+    binding.pry
     if @user && @user.authenticate(params[:password])
       session[:user_id]=@user.id
       redirect to '/places'

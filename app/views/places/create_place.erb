@@ -3,21 +3,20 @@
 <hr>
 <h1>Create a Place</h1>
 <form method="POST" action="/places">
-  <input id="hidden" name="_method" type="hidden" value="patch"
   <label for "continent">Continent: </label>
-  <input type="text" name="place[continent]" id="continent"><%= @place.continent %></input>
+  <input type="text" name="place[continent]" id="continent"/>
   <br>
   <label for "country">Country: </label>
-  <input type="text" name="place[country]" id="country"><%= @place.country %></input>
+  <input type="text" name="place[country]" id="country"/>
   <br>
   <label for "state">State: </label>
-  <input type="text" name="place[state]" id="state"><%= @place.state %></input>
+  <input type="text" name="place[state]" id="state"/>
   <br>
   <label for "city">City: </label>
-  <input type="text" name="place[continent]" id="continent"><%= @place.continent %></input>
+  <input type="text" name="place[continent]" id="continent"/>
   <br>
   <label for "notes">Notes: </label>
-  <textarea type="text" name="place[notes]" id="notes"><%= @place.notes %></textarea>
+  <textarea type="text" name="place[notes]" id="notes"></textarea>
   <br>
   <input type="submit" id="submit" name="submit" value="submit">
 </form>
