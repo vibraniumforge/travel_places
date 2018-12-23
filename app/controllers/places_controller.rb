@@ -11,6 +11,7 @@ class PlacesController < ApplicationController
 
   get '/places/new' do
     user = Helpers.current_user(session)
+          binding.pry
     if user.nil?
       redirect to '/login'
     else
