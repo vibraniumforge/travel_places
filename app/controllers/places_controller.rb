@@ -14,7 +14,7 @@ class PlacesController < ApplicationController
     if user.nil?
       redirect to '/login'
     else
-      erb :'new'
+      erb :'places/new'
     end
   end
 

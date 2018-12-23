@@ -5,10 +5,12 @@
   </head>
   <body>
     <h1>Welcome to Travel Places!</h1>
+    <h3>Username: <%= Helpers.current_user(session).username %> </h3>
+    <p>Email: <%= Helpers.current_user(session).email %></p>
     <a href="/">Home</a>
     <br>
     <% if Helpers.is_logged_in?(session) %>
-      <a href="/users/<%= Helpers.current_user(session).username %>">My Page</a>
+      <a href="/users/<%= Helpers.current_user(session).username %>">My Home Page</a>
       <br>
       <a href="/logout">Log Out</a>
     <% else %>
