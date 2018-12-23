@@ -6,6 +6,7 @@ end
 
 class Sinatra::Base
   set :show_exceptions => false
+  register Sinatra::Flash
   error { |err|
     Rack::Response.new(
       [{'error' => err.message}.to_json],
