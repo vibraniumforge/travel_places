@@ -3,7 +3,8 @@ class PlacesController < ApplicationController
   get '/places' do
     if Helpers.is_logged_in?(session)
       @places=Place.all
-      erb :'/places/places'
+      binding.pry
+      erb :'index'
     else
       redirect to '/users/login'
     end
@@ -11,7 +12,6 @@ class PlacesController < ApplicationController
 
   get '/places/new' do
     user = Helpers.current_user(session)
-          binding.pry
     if user.nil?
       redirect to '/login'
     else
@@ -39,6 +39,7 @@ class PlacesController < ApplicationController
   end
 
   post '/places' do
+    binding.pry
     user = Helpers.current_user(session)
     if user.nil?
       redirect to '/users/login'
@@ -48,6 +49,7 @@ class PlacesController < ApplicationController
     #   params[:place][:city].empty?
     #   redirect to '/places/new'
     else
+      binding.pry
       # user.places.build({content: params[:place][:continent],
       # [:place][:country],
       # [:place][:state],
