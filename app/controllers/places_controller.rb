@@ -1,11 +1,9 @@
 class PlacesController < ApplicationController
 
-  set :views, 'app/views/places'
-
   get '/places' do
     if Helpers.is_logged_in?(session)
       @places=Helpers.current_user(session).places
-      erb :'index'
+      erb :'places/index'
     else
       redirect to '/users/login'
     end
@@ -23,7 +21,7 @@ class PlacesController < ApplicationController
   get '/places/:id' do
     if Helpers.is_logged_in?(session)
       @place=Place.find(params[:id])
-      erb :'show'
+      erb :'places/show'
     else
       redirect to '/login'
     end
@@ -33,7 +31,7 @@ class PlacesController < ApplicationController
     redirect to '/login' unless Helpers.is_logged_in?(session)
     @place = Place.find(params[:id])
     if @place.user == Helpers.current_user(session)
-      erb :'edit'
+      erb :'places/edit'
     else
       redirect to '/login'
     end

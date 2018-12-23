@@ -9,11 +9,11 @@
 <br>
 <hr>
 <h1>Show a Place</h1>
-<p>Continent: <%= @place.continent %> </p>
-<p>Country: <%= @place.country %> </p>
-<p>State/Province: <%= @place.state %> </p>
-<p>City: <%= @place.city %></p>
-<p>Notes: <%= @place.notes %> </p>
+<p><strong>Continent: </strong><%= @place.continent %> </p>
+<p><strong>Country: </strong><%= @place.country %> </p>
+<p><strong>State/Province: </strong><%= @place.state %> </p>
+<p><strong>City: </strong><%= @place.city %></p>
+<p><strong>Notes: </strong><%= @place.notes %> </p>
 <br>
 <hr>
 <form method="GET" action="/places/<%= @place.id %>/edit">

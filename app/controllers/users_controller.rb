@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-  set :views, 'app/views/users'
-
   get '/login' do
     if Helpers.is_logged_in?(session)
       redirect to '/places'
@@ -27,20 +25,22 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    if !params.has_value?("")
+    binding.pry
+    if !params.has_value?("") && params[:password].size>4
       @user=User.create(params)
       session[:user_id] = @user.id
       redirect to '/places'
     else
-      redirect to '/signup'
+      redirect to 'users/signup'
     end
   end
 
   post '/login' do
     @user=User.find_by(:username=>params[:username])
+    binding.pry
     if @user && @user.authenticate(params[:password])
       session[:user_id]=@user.id
-      redirect to '/places'
+      redirect to '/places/index'
     else
       redirect to '/login'
     end
