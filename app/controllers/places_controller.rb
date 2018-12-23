@@ -5,7 +5,6 @@ class PlacesController < ApplicationController
   get '/places' do
     if Helpers.is_logged_in?(session)
       @places=Helpers.current_user(session).places
-      binding.pry
       erb :'index'
     else
       redirect to '/users/login'
@@ -41,17 +40,15 @@ class PlacesController < ApplicationController
   end
 
   post '/places' do
-    binding.pry
     user = Helpers.current_user(session)
     if user.nil?
       redirect to '/users/login'
-    # elsif params[:place][:continent].empty?||
-    #   params[:place][:country].empty? ||
-    #   params[:place][:state].empty? ||
-    #   params[:place][:city].empty?
-    #   redirect to '/places/new'
+    elsif params[:place][:continent].empty?||
+      params[:place][:country].empty? ||
+      params[:place][:state].empty? ||
+      params[:place][:city].empty?
+      redirect to '/places/new'
     else
-      binding.pry
       user.places << Place.new({
       continent: params[:place][:continent],
       country: params[:place][:country],
@@ -68,9 +65,9 @@ class PlacesController < ApplicationController
     @place=Place.find(params[:id])
     binding.pry
     if params[:place][:continent].empty?
-      # params[:place][:country].empty? ||
-      # params[:place][:state].empty? ||
-      # params[:place][:city].empty?
+      params[:place][:country].empty? ||
+      params[:place][:state].empty? ||
+      params[:place][:city].empty?
       redirect to "/places/#{@place.id}/edit"
     end
     @place.update(params[:place])
@@ -94,3 +91,4 @@ class PlacesController < ApplicationController
   end
 
 end
+  

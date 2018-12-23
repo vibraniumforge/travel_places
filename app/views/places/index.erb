@@ -1,4 +1,8 @@
-<p>app/views/places/places.erb</p>
+<p>app/views/places/index.erb</p>
+<a href="/">Home</a>
+<br>
+<a href="/logout">Log Out</a>
+<br>
 <a href="/places/new">Create a New Place</a>
 <br>
 <hr>
@@ -7,20 +11,13 @@
 <br>
 <hr>
 <ol style="list-style:none">
-<% binding.pry %>
 <% @places.each do | place | %>
-<% binding.pry %>
   <li>
-    <p>In <%= place.continent %> </p>
-    <br>
-    <p>The country of<%= place.country %> </p>
-    <br>
-    <p>In the state or province of <%= place.state %> </p>
-    <br>
-    <p>The city <%= place.city %></p>
-    <br>
-    <textarea><%= place.notes %> </textarea>
-    <br>
+    <p>Continent: <%= place.continent %> </p>
+    <p>Country: <%= place.country %> </p>
+    <p>State/Province: <%= place.state %> </p>
+    <p>City: <%= place.city %></p>
+    <p>Notes: <%= place.notes %> </p>
     <a href="/places/<%= place.id %>">Show Place</a>
     <br>
     <hr>

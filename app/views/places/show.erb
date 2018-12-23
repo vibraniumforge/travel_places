@@ -1,17 +1,19 @@
-<p>app/views/places/show_place.erb</p>
-<a href="/places/new">Show a New Place</a>
+<p>app/views/places/show.erb</p>
+<a href="/">Home</a>
+<br>
+<a href="/logout">Log Out</a>
+<br>
+<a href="/places/new">Create a New Place</a>
+<br>
+<a href="/places/show">My Homepage</a>
 <br>
 <hr>
 <h1>Show a Place</h1>
-<%= place.continent %>
-<br>
-<%= place.country %>
-<br>
-<%= place.state %>
-<br>
-<%= place.city %>
-<br>
-<%= place.notes %>
+<p>Continent: <%= @place.continent %> </p>
+<p>Country: <%= @place.country %> </p>
+<p>State/Province: <%= @place.state %> </p>
+<p>City: <%= @place.city %></p>
+<p>Notes: <%= @place.notes %> </p>
 <br>
 <hr>
 <form method="GET" action="/places/<%= @place.id %>/edit">
