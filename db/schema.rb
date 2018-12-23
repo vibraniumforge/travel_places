@@ -13,9 +13,12 @@
 
 ActiveRecord::Schema.define(version: 2) do
 
-  create_table "tweets", force: :cascade do |t|
-    t.text    "content"
-    t.integer "user_id"
+  create_table "places", force: :cascade do |t|
+    t.string "continent"
+    t.string "country"
+    t.string "state"
+    t.string "city"
+    t.text   "notes"
   end
 
   create_table "users", force: :cascade do |t|
