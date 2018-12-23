@@ -41,17 +41,17 @@ class PlacesController < ApplicationController
     user = Helpers.current_user(session)
     if user.nil?
       redirect to '/users/login'
-    elsif params[:place][:continent].empty?||
-      params[:place][:country].empty? ||
-      params[:place][:state].empty? ||
-      params[:place][:city].empty?
-      redirect to '/places/new'
+    # elsif params[:place][:continent].empty?||
+    #   params[:place][:country].empty? ||
+    #   params[:place][:state].empty? ||
+    #   params[:place][:city].empty?
+    #   redirect to '/places/new'
     else
-      user.places.build({content: params[:place][:continent],
-      [:place][:country], 
-      [:place][:state], 
-      [:place][:city], 
-      [:place][:notes] })
+      # user.places.build({content: params[:place][:continent],
+      # [:place][:country],
+      # [:place][:state],
+      # [:place][:city],
+      # [:place][:notes]})
       user.save
     end
     redirect to '/places'
@@ -59,10 +59,10 @@ class PlacesController < ApplicationController
 
   patch "/places/:id" do
     @place=Place.find(params[:id])
-    if params[:place][:continent].empty?||
-      params[:place][:country].empty? ||
-      params[:place][:state].empty? ||
-      params[:place][:city].empty?
+    if params[:place][:continent].empty?
+      # params[:place][:country].empty? ||
+      # params[:place][:state].empty? ||
+      # params[:place][:city].empty?
       redirect to "/places/#{@place.id}/edit"
     end
     @place.update(params[:place])
