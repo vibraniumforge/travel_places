@@ -1,5 +1,6 @@
 require './config/environment'
-require 'rack-flash'
+
+
 class ApplicationController < Sinatra::Base
 
   configure do
@@ -9,9 +10,8 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "password_security"
   end
 
-  use Rack::Flash
-
   get '/' do
+    flash[:notice] = "Thanks for your email. I'll be in touch soon."
     erb :'index'
   end
 

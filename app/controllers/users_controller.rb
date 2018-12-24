@@ -1,7 +1,4 @@
-require 'rack-flash'
 class UsersController < ApplicationController
-
-  use Rack::Flash
 
   get '/login' do
     if Helpers.is_logged_in?(session)
@@ -33,7 +30,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect to '/places'
     else
-      flash[:message] = "Fields cannot be empty. Password must be at least 4 characters long."
+      # flash[:message] = "Fields cannot be empty. Password must be at least 4 characters long."
       redirect to 'users/signup'
     end
   end
