@@ -28,9 +28,10 @@ class UsersController < ApplicationController
     if !params.has_value?("") && params[:password].size>=4
       @user=User.create(params)
       session[:user_id] = @user.id
+      flash[:message] = "User successfully created."
       redirect to '/places'
     else
-      # flash[:message] = "Fields cannot be empty. Password must be at least 4 characters long."
+      flash[:message] = "Fields cannot be empty. Password must be at least 4 characters long."
       redirect to 'users/signup'
     end
   end
@@ -39,6 +40,7 @@ class UsersController < ApplicationController
     @user=User.find_by(:username=>params[:username])
     if @user && @user.authenticate(params[:password])
       session[:user_id]=@user.id
+      flash[:message] = "Login successful."
       redirect to '/places'
     else
       redirect to '/login'
@@ -48,6 +50,7 @@ class UsersController < ApplicationController
   get '/logout' do
     if Helpers.is_logged_in?(session)
       session.clear
+      flash[:message] = "Logout successful."
     else
       redirect to '/'
     end

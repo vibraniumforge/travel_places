@@ -3,8 +3,6 @@ class PlacesController < ApplicationController
   get '/places' do
     if Helpers.is_logged_in?(session)
       @places=Helpers.current_user(session).places
-      # flash[:message] = "Login successful."
-      # flash.now[:notice] = "Login successful."
       erb :'places/index'
     else
       redirect to '/users/login'
@@ -58,7 +56,7 @@ class PlacesController < ApplicationController
       notes: params[:place][:notes]
       })
       user.save
-      # flash[:message] = "New place successfully created."
+      flash[:message] = "New place successfully created."
     end
     redirect to '/places'
   end
@@ -69,12 +67,12 @@ class PlacesController < ApplicationController
       params[:place][:country].empty? ||
       params[:place][:state].empty?
       params[:place][:city].empty?
-      # flash[:message] = "All fields (except notes) must be filled in."
+      flash[:message] = "All fields (except notes) must be filled in."
       redirect to "/places/#{@place.id}/edit"
     end
     @place.update(params[:place])
     @place.save
-    # flash[:message] = "Place successfully updated."
+    flash[:message] = "Place successfully updated."
     redirect to "/places/#{@place.id}"
   end
 
@@ -84,7 +82,7 @@ class PlacesController < ApplicationController
       if @place.user==Helpers.current_user(session)
         @place=Place.find_by_id(params[:id])
         @place.delete
-        # flash[:message] = "Place successfully deleted."
+        flash[:message] = "Place successfully deleted."
         redirect to '/places'
       else
         redirect to '/places'

@@ -1,6 +1,5 @@
 require './config/environment'
 
-
 class ApplicationController < Sinatra::Base
 
   configure do
@@ -8,10 +7,10 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :session_secret, "password_security"
+    register Sinatra::Flash
   end
 
   get '/' do
-    flash[:notice] = "Thanks for your email. I'll be in touch soon."
     erb :'index'
   end
 
