@@ -1,0 +1,7 @@
+Place.create(continent: 'Asia', country: 'Cambodia', state: 'Siam Reap', city: 'Ankgor Wat', notes: 'This is a great place!')
+Place.create(continent: 'Africa', country: 'Egypt', state: 'Cairo', city: 'Cairo', notes: 'The pyramids are great! All the tourists making stupid poses in front of them are not!!')
+Place.create(continent: 'South America', country: 'Brazil', state: 'Rio de Janiero', city: 'Rio de Janiero', notes: 'This place has a lot of people that are hiding from the U.S. law enforcement.')
+Place.create(continent: 'Asia', country: 'China', state: 'Beijing', city: 'Beijing', notes: 'You can cut the air with a knife!')
+Place.create(continent: 'Australia', country: 'Australia', state: 'New South Wales', city: 'Sydney', notes: 'The water DOES swirl down the sink the other way here.')
+Place.create(continent: 'Europe', country: 'France', state: 'Ile de France', city: 'Paris', notes: 'They are as rude as you have heard!')
+Place.create(continent: 'North America', country: 'United States', state: 'California', city: 'Los Angeles', notes: 'As seen on TV!')
