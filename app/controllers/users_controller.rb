@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   get '/login' do
-    if Helpers.is_logged_in?(session)
+    if is_logged_in?(session)
       redirect to '/places'
     else
       erb :'/users/login'
@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   get '/signup' do
-    if Helpers.is_logged_in?(session)
+    if is_logged_in?(session)
       redirect to '/places'
     end
     erb :'/users/create_user'
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
   end
 
   get '/logout' do
-    if Helpers.is_logged_in?(session)
+    if is_logged_in?(session)
       session.clear
       flash[:message] = "Logout successful."
     else
