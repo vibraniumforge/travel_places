@@ -1,0 +1,24 @@
+<p>app/views/places/index.erb</p>
+<a href="/places/new">Create a New Place</a>
+<br>
+<hr>
+<h1>Hello, <%= Helpers.current_user(session).username %>!</h1>
+<h3>Here are all the places you have visited:</h3>
+<br>
+<hr>
+<ol style="list-style:none">
+<% @places.each do | place | %>
+  <li>
+    <p><strong>Continent: </strong><%= place.continent %> </p>
+    <p><strong>Country: </strong><%= place.country %> </p>
+    <p><strong>State/Province: </strong><%= place.state %> </p>
+    <p><strong>City: </strong><%= place.city %></p>
+    <p><strong>Notes: </strong><%= place.notes %> </p>
+    <a href="/places/<%= place.id %>">Show Place</a>
+    <br>
+    <hr>
+  </li>
+  <% end %>
+</ol>
+  <br>
+  <hr>
