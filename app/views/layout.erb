@@ -5,23 +5,22 @@
   </head>
   <body>
     <h1>Welcome to Travel Places!</h1>
-    <% if Helpers.is_logged_in?(session) %>
-      <h3>Username: <%= Helpers.current_user(session).username %>  </h3>
-      <p>Email: <%= Helpers.current_user(session).email %></p>
-      <a href="/users/<%= Helpers.current_user(session).id %>">My Home Page</a>
+    <% if is_logged_in?(session) %>
+      <h3>Username: <%= current_user(session).username %></h3>
+      <p>Email: <%= current_user(session).email %></p>
+      <a href="/users/<%= current_user(session).id %>">My Home Page</a>
       <br>
       <a href="/logout">Log Out</a>
       <br>
     <% end %>
     <a href="/">Home</a>
     <br>
-    <% if Helpers.is_logged_in?(session) %>
+    <% if is_logged_in?(session) %>
     <% else %>
       <a href="/signup">Sign Up</a>
       <br>
       <a href="/login">Log In</a>
     <% end %>
-    <hr>
     <div id="flash" class="notice">
       <a class="close" data-dismiss="alert"></a>
       <%= flash[:message] %>
