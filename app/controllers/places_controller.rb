@@ -1,8 +1,9 @@
+
 class PlacesController < ApplicationController
 
   get '/places' do
-    if Helpers.is_logged_in?(session)
-      @places=Helpers.current_user(session).places
+    if is_logged_in?(session)
+      @places=current_user(session).places
       erb :'places/index'
     else
       redirect to '/users/login'
@@ -10,7 +11,7 @@ class PlacesController < ApplicationController
   end
 
   get '/places/new' do
-    user = Helpers.current_user(session)
+    user = current_user(session)
     if user.nil?
       redirect to '/login'
     else
@@ -19,7 +20,7 @@ class PlacesController < ApplicationController
   end
 
   get '/places/:id' do
-    if Helpers.is_logged_in?(session)
+    if is_logged_in?(session)
       @place=Place.find(params[:id])
       erb :'places/show'
     else
@@ -28,9 +29,9 @@ class PlacesController < ApplicationController
   end
 
   get '/places/:id/edit' do
-    redirect to '/login' unless Helpers.is_logged_in?(session)
+    redirect to '/login' unless is_logged_in?(session)
     @place = Place.find(params[:id])
-    if @place.user == Helpers.current_user(session)
+    if @place.user == current_user(session)
       erb :'places/edit'
     else
       redirect to '/login'
@@ -38,7 +39,7 @@ class PlacesController < ApplicationController
   end
 
   post '/places' do
-    user = Helpers.current_user(session)
+    user = current_user(session)
     if user.nil?
       redirect to '/users/login'
     elsif params[:place][:continent].empty?||
@@ -62,11 +63,11 @@ class PlacesController < ApplicationController
   end
 
   patch "/places/:id" do
+    if user.nil?
+      redirect to '/users/login'
+    end
     @place=Place.find(params[:id])
-    if params[:place][:continent].empty? ||
-      params[:place][:country].empty? ||
-      params[:place][:state].empty?
-      params[:place][:city].empty?
+    if params[:place].empty?
       flash[:message] = "All fields (except notes) must be filled in."
       redirect to "/places/#{@place.id}/edit"
     end
@@ -77,9 +78,9 @@ class PlacesController < ApplicationController
   end
 
   delete '/places/:id/delete' do
-    if Helpers.is_logged_in?(session)
+    if is_logged_in?(session)
       @place=Place.find(params[:id])
-      if @place.user==Helpers.current_user(session)
+      if @place.user == current_user(session)
         @place=Place.find_by_id(params[:id])
         @place.delete
         flash[:message] = "Place successfully deleted."
