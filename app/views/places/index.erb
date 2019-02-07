@@ -1,11 +1,6 @@
-<p>app/views/places/index.erb</p>
-<a href="/places/new">Create a New Place</a>
-<br>
-<hr>
-<h1>Hello, <%= Helpers.current_user(session).username %>!</h1>
+<h1>Hello, <%= current_user(session).username %>!</h1>
 <h3>Here are all the places you have visited:</h3>
 <br>
-<hr>
 <ol style="list-style:none">
 <% @places.each do | place | %>
   <li>
@@ -20,5 +15,3 @@
   </li>
   <% end %>
 </ol>
-  <br>
-  <hr>
