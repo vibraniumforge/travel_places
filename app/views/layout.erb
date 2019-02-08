@@ -17,9 +17,9 @@
     <br>
     <% if is_logged_in?(session) %>
     <% else %>
-      <a href="/signup">Sign Up</a>
+      <a href="/signup"><button type="button">Sign Up</button></a>
       <br>
-      <a href="/login">Log In</a>
+      <a href="/login"><button type="button">Log In</button></a>
     <% end %>
     <div id="flash" class="notice">
       <a class="close" data-dismiss="alert"></a>
