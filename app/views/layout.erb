@@ -8,12 +8,12 @@
     <% if is_logged_in?(session) %>
       <h3>Username: <%= current_user(session).username %></h3>
       <p>Email: <%= current_user(session).email %></p>
-      <a href="/users/<%= current_user(session).id %>">My Home Page</a>
+      <a href="/users/<%= current_user(session).id %>"><button type="button">My Home Page</button></a>
       <br>
-      <a href="/logout">Log Out</a>
+      <a href="/logout"><button type="button">Log Out</button></a>
       <br>
+      <a href="/places/new"><button type="button">Create a New Place</button></a>
     <% end %>
-    <a href="/">Home</a>
     <br>
     <% if is_logged_in?(session) %>
     <% else %>
