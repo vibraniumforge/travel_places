@@ -7,7 +7,7 @@ Place.create(continent: 'Europe', country: 'France', state: 'Gironde', city: 'Bo
 Place.create(continent: 'North America', country: 'United States', state: 'Washington', city: 'Seattle', notes: 'I live here!', user_id: 1)
 
 Place.create(continent: 'Asia', country: 'Singapore', state: 'Singapore', city: 'Singapore', notes: 'Don\'t even think of misbehaving here!', user_id: 2)
-Place.create(continent: 'Africa', country: 'Tanzania', state: 'Mara', city: 'Serengeti', notes: 'Don\t lock your keys in the car here!', user_id: 2)
+Place.create(continent: 'Africa', country: 'Tanzania', state: 'Mara', city: 'Serengeti', notes: 'Don\'t lock your keys in the car here!', user_id: 2)
 Place.create(continent: 'South America', country: 'Peru', state: 'Cusco', city: 'Machu Picchu', notes: 'Quite a hike up to there!', user_id: 2)
 Place.create(continent: 'Asia', country: 'Japan', state: 'Tokyo', city: 'Kanto', notes: 'No Godzilla problems - yet...', user_id: 2)
 Place.create(continent: 'Australia', country: 'Australia', state: 'Northern Territoty', city: 'Yulara', notes: 'Ayer\'s Rock is a tourist trap.', user_id: 2)
