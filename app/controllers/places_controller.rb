@@ -63,6 +63,7 @@ class PlacesController < ApplicationController
   end
 
   patch "/places/:id" do
+    user = current_user(session)
     if user.nil?
       redirect to '/users/login'
     end
