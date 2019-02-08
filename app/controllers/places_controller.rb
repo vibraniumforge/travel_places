@@ -73,7 +73,6 @@ class PlacesController < ApplicationController
       redirect to "/places/#{@place.id}/edit"
     end
     @place.update(params[:place])
-    @place.save
     flash[:message] = "Place successfully updated."
     redirect to "/places/#{@place.id}"
   end
