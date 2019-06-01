@@ -1,3 +1,5 @@
+puts 'gererating seeds...'
+
 Place.create(continent: 'Asia', country: 'Cambodia', state: 'Siam Reap', city: 'Ankgor Wat', notes: 'This is a great place!', user_id: 1)
 Place.create(continent: 'Africa', country: 'Egypt', state: 'Cairo', city: 'Cairo', notes: 'The pyramids are great! All the tourists making stupid poses in front of them are not!!', user_id: 1)
 Place.create(continent: 'South America', country: 'Brazil', state: 'Rio de Janiero', city: 'Rio de Janiero', notes: 'This place has a lot of people that are hiding from the U.S. law enforcement.', user_id: 1 )
@@ -13,3 +15,5 @@ Place.create(continent: 'Asia', country: 'Japan', state: 'Tokyo', city: 'Kanto',
 Place.create(continent: 'Australia', country: 'Australia', state: 'Northern Territoty', city: 'Yulara', notes: 'Ayer\'s Rock is a tourist trap.', user_id: 2)
 Place.create(continent: 'Europe', country: 'France', state: 'Ile de France', city: 'Paris', notes: 'They are as rude as you have heard!', user_id: 2)
 Place.create(continent: 'North America', country: 'United States', state: 'California', city: 'San Francisco', notes: 'If you like dirty streets, visit here!', user_id: 2)
+
+puts 'seeds done'
