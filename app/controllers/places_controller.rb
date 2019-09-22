@@ -2,8 +2,8 @@
 class PlacesController < ApplicationController
 
   get '/places' do
-    if is_logged_in?(session)
-      @places=current_user(session).places
+    if is_logged_in?
+      @places=current_user.places
       erb :'places/index'
     else
       redirect to '/users/login'
@@ -11,7 +11,7 @@ class PlacesController < ApplicationController
   end
 
   get '/places/new' do
-    user = current_user(session)
+    user = current_user
     if user.nil?
       redirect to '/login'
     else
@@ -20,7 +20,7 @@ class PlacesController < ApplicationController
   end
 
   get '/places/:id' do
-    if is_logged_in?(session)
+    if is_logged_in?
       @place=Place.find(params[:id])
       erb :'places/show'
     else
@@ -29,9 +29,9 @@ class PlacesController < ApplicationController
   end
 
   get '/places/:id/edit' do
-    redirect to '/login' unless is_logged_in?(session)
+    redirect to '/login' unless is_logged_in?
     @place = Place.find(params[:id])
-    if @place.user == current_user(session)
+    if @place.user == current_user
       erb :'places/edit'
     else
       redirect to '/login'
@@ -39,7 +39,7 @@ class PlacesController < ApplicationController
   end
 
   post '/places' do
-    user = current_user(session)
+    user = current_user
     if user.nil?
       redirect to '/users/login'
     elsif params[:place][:continent].empty?||
@@ -63,7 +63,7 @@ class PlacesController < ApplicationController
   end
 
   patch "/places/:id" do
-    user = current_user(session)
+    user = current_user
     if user.nil?
       redirect to '/users/login'
     end
@@ -78,9 +78,9 @@ class PlacesController < ApplicationController
   end
 
   delete '/places/:id/delete' do
-    if is_logged_in?(session)
+    if is_logged_in?
       @place=Place.find(params[:id])
-      if @place.user == current_user(session)
+      if @place.user == current_user
         @place=Place.find_by_id(params[:id])
         @place.delete
         flash[:message] = "Place successfully deleted."
