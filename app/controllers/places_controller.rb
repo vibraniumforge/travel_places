@@ -3,7 +3,7 @@ class PlacesController < ApplicationController
 
   get '/places' do
     if is_logged_in?
-      @places=current_user.places
+      @places = current_user.places
       erb :'places/index'
     else
       redirect to '/users/login'
@@ -21,7 +21,7 @@ class PlacesController < ApplicationController
 
   get '/places/:id' do
     if is_logged_in?
-      @place=Place.find(params[:id])
+      @place = Place.find(params[:id])
       erb :'places/show'
     else
       redirect to '/login'
@@ -67,7 +67,7 @@ class PlacesController < ApplicationController
     if user.nil?
       redirect to '/users/login'
     end
-    @place=Place.find(params[:id])
+    @place = Place.find(params[:id])
     if params[:place].empty?
       flash[:message] = "All fields (except notes) must be filled in."
       redirect to "/places/#{@place.id}/edit"
@@ -79,9 +79,9 @@ class PlacesController < ApplicationController
 
   delete '/places/:id/delete' do
     if is_logged_in?
-      @place=Place.find(params[:id])
+      @place = Place.find(params[:id])
       if @place.user == current_user
-        @place=Place.find_by_id(params[:id])
+        @place = Place.find(params[:id])
         @place.delete
         flash[:message] = "Place successfully deleted."
         redirect to '/places'

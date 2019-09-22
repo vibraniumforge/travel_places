@@ -14,15 +14,7 @@ class ApplicationController < Sinatra::Base
     erb :'index'
   end
 
-  # def current_user(session)
-  #   @user = User.find_by_id(session[:user_id])
-  #   if @user.is_a?(User)
-  #     @user
-  #   end
-  # end
-
   def is_logged_in?
-    # !!User.find_by_id(session[:user_id])
     !!current_user
   end
 

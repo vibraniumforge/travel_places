@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   get '/users/:id' do
-    @user=User.find_by_id(params[:id])
+    @user = User.find(params[:id])
     if !@user.nil?
       redirect to "/places"
     else
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
   post '/signup' do
     if !params.has_value?("") && params[:password].size>=4
-      @user=User.create(params)
+      @user = User.create(params)
       session[:user_id] = @user.id
       flash[:message] = "User successfully created."
       redirect to '/places'
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
   end
 
   post '/login' do
-    @user=User.find_by(:username=>params[:username])
+    @user = User.find_by(:username => params[:username])
     if @user && @user.authenticate(params[:password])
       session[:user_id]=@user.id
       flash[:message] = "Login successful."

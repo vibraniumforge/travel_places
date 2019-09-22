@@ -6,30 +6,31 @@
   
   <body>
     <h1>Welcome to Travel Places!</h1>
+    <div id="flash" class="notice">
+      <a class="close" data-dismiss="alert"></a>
+      <%= flash[:message] %>
+    </div>
+    <br>
     <% if is_logged_in? %>
       <div class="navbar">
-          <a href="/users/<%= current_user.id %>">My Home Page</a>
-          <a href="#"><strong>Username: <%= current_user.username %></strong></a>
-          <a href="#"><strong>Email: <%= current_user.email %></strong></a>
+        <a href="/users/<%= current_user.id %>">My Home Page</a>
+        <a href="#"><strong>Username: <%= current_user.username %></strong></a>
+        <a href="#"><strong>Email: <%= current_user.email %></strong></a>
       </div>
       <br>
-      <a href="/users/<%= current_user.id %>"><button type="button">My Home Page</button></a>
-      <a href="/logout"><button type="button">Log Out</button></a>
-      <a href="/places/new"><button type="button">Create a New Place</button></a>
-    <% end %>
-    <br>
-   
-    <% if is_logged_in? %>
+      <div>
+        <a href="/users/<%= current_user.id %>"><button type="button">My Home Page</button></a>
+        <a href="/logout"><button type="button">Log Out</button></a>
+        <a href="/places/new"><button type="button">Create a New Place</button></a>
+      </div>
     <% else %>
       <a href="/signup"><button type="button">Sign Up</button></a>
       <br>
       <a href="/login"><button type="button">Log In</button></a>
     <% end %>
     <br>
-    <div id="flash" class="notice">
-      <a class="close" data-dismiss="alert"></a>
-      <%= flash[:message] %>
-    </div>
+    <br>
+  
     <hr>
     <%= yield %>
   </body>
